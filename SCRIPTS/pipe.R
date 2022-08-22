@@ -47,9 +47,9 @@ obj <- FindClusters(obj, verbose = FALSE)
 obj <- RunUMAP(obj, reduction = "pca", dims = 1:30)
 
 save_pdf_path <- sprintf("%s.clusters.pdf",gsub(".rds$","",save_seurat_obj_path))
-pdf(save_pdf_path,height=15,width=20)
-p1 <- DimPlot(brain, reduction = "umap", label = TRUE)
-p2 <- SpatialDimPlot(brain, label = TRUE, label.size = 3)
+pdf(save_pdf_path)
+p1 <- DimPlot(obj, reduction = "umap", label = TRUE)
+p2 <- SpatialDimPlot(obj, label = TRUE, label.size = 3)
 p1 + p2
 dev.off()
 
