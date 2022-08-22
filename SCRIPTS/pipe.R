@@ -15,6 +15,12 @@ library(ggplot2)
 
 obj <- Load10X_Spatial(data.dir = input_dir,filename = h5_file_name)
 
+#obj@images[["slice1"]]@coordinates[["tissue"]] <- as.integer(obj@images[["slice1"]]@coordinates[["tissue"]])
+#obj@images[["slice1"]]@coordinates[["row"]] <- as.integer(obj@images[["slice1"]]@coordinates[["row"]])
+#obj@images[["slice1"]]@coordinates[["col"]] <- as.integer(obj@images[["slice1"]]@coordinates[["col"]])
+#obj@images[["slice1"]]@coordinates[["imagerow"]] <- as.integer(obj@images[["slice1"]]@coordinates[["imagerow"]])
+#obj@images[["slice1"]]@coordinates[["imagecol"]] <- as.integer(obj@images[["slice1"]]@coordinates[["imagecol"]])
+
 # counts distribution before normalization
 plot1 <- VlnPlot(obj, features = "nCount_Spatial", pt.size = 0.1, split.by = NULL) + NoLegend()
 plot2 <- SpatialFeaturePlot(obj, features = "nCount_Spatial") + theme(legend.position = "right")
